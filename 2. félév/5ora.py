@@ -70,4 +70,36 @@ print("Az elemek átlaga:", round(átlag,2))
 mtx = [[int(math.fabs(mtx[i][j])) for j in range(len(mtx[i]))] for i in range(len(mtx))]
 for row in mtx:
     print(row)
+    
+mtx = [[[k for k in range(4)] for j in range(4)] for i in range(3)]
+print(mtx)
+
+összeg = 0
+for i in range(len(mtx)):
+    for j in range(len(mtx[0])):
+        for k in range(len(mtx[0][0])):
+            összeg += mtx[i][j][k]
+print("A kocka elemeinek az összege:", összeg)
+
+import numpy as np                  #pip install numpy
+import matplotlib.pyplot as plt     #pip install matplotlib
+
+axes = [5,5,5] # tengelyek
+data = np.ones(axes) # data, az egy 5*5*5 mátrix, ami csupa 1-eseket tartalmaz (floatként)
+colors = np.empty(axes + [3]) # 4 dimenziós mátrix (5*5*5*3), az értékeik azok nincsenek beállítva
+# A memóriában lefoglaljuk a helyet a mátrixnak, de nem adunk semmilyen alap értéket
+# Ez azt eredményezi, hogy a mátrix elemei, azok az értékek lesznek, amik eredetileg,
+# azon a memória helyen fellelhetőek voltak
+colors[0] = [1,0,0] # Piros
+colors[1] = [0,1,0] # Zöld
+colors[2] = [0,0,1] # Kék
+colors[3] = [1,1,0] # Sárga
+colors[4] = [0,1,1] # Türkiz
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection="3d")
+ax.voxels(data, facecolors=colors, edgecolors="gray")
+plt.savefig("3d_kocka.png")
+plt.show()
+
 
