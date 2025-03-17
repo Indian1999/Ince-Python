@@ -1,0 +1,30 @@
+ 1. jó
+ 2. jó
+ 3. string szorzás 
+ 4. jó
+ 5. myList[0] = myList[-1]
+ 6. jó
+ 7. jó de a listák egyenlővé tételét beszéljük meg
+ 8. -||-
+ 9. list comprehension
+10. rossz, becsapós fejben levezetgetős 
+11. jó
+12. break, return, continue, pass
+13. myList[myList[-1]]
+14. del, listák egyenlők
+15. bináris operátorok (levezetgetős)
+16. jó
+17. matrix comprehension, matrix indexelés
+18. kiindexelés
+19. insert függvény
+20. ciklusok else ága
+21. & opeátor
+22. jó | operátor
+23. jó ^ operátor
+24. Az előző 3 összege
+25. break levezetgetős
+26. jó
+27. TypeError
+28. ZeroDivisionError
+29. jó, dictionary
+30. dictionary
