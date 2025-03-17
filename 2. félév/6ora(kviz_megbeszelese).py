@@ -108,3 +108,23 @@ for i in range(10): # 0 2 4 6 8
 print()
 
 # ciklusok else ága
+# Akkor fut le, ha NEM break-kel léptünk ki a ciklusból
+
+for i in range(5):
+    print("#")
+else:
+    print("lefutott az else ág") # nem breakkel léptünk ki -> lefut
+    
+for i in range(5):
+    if i == 2:
+        break
+else:
+    print("Ez itt az else ág") # nem fut le, mert break-kel léptünk ki
+    
+# Akkor is lefut az else ág, ha egyszer sem fut le a ciklus
+
+game_on = False
+while game_on:
+    print("szia")
+else:
+    print("Egyszer sem fut le, mégis itt vagyunk az else ágban.") # Le fog futni
