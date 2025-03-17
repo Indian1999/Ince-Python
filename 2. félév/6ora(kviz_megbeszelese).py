@@ -67,6 +67,44 @@ lista = [i**2 - 8*i + 16 for i in range(0, 9)]
 print(lista)
 lista = [[] for i in range(5)]
 print(lista)
-# break return continue pass
+lista = [[1,2,3,4] for i in range(4)]
+print(lista) 
+lista = [[i for i in range(-6, 19, 7)] for j in range(5)]
+print(lista)
+lista = [[[k for k in range(5)] for j in range(3)] for i in range(6)]
+print(lista)
+
+# pass kulcsszó
+# Nem csinál semmit
+
+def func(x):
+    pass
+
+func(5) # Nem történik semmi
+
+# Erre azért van szükség mert ha egy blokk belsejébe nem írunk írunk semmit, akkor hibát kapunk
+
+# break
+# Kilép az aktuálisan futó ciklusból
+
+for i in range(10):
+    if i == 3:
+        break # kilép a ciklusból, az aktuális ciklus iteráció se fog végig menni (3-at már nem írjuk ki)
+    print(i)
+
+for i in range(10):
+    for j in range(8):
+        if j == 2:
+            break # Ha két ciklus fut, csak a belsőből lépünk ki
+        print(f"j = {j}")
+    print(f"i = {i}")
+
+# continue
+# Ha ez a kulcsszót használjuk, akkor az aktuális ciklus iterációt átugorjuk és a következőre megyünk
+for i in range(10): # 0 2 4 6 8
+    if i % 2 != 0:
+        continue #Minden ami ez után van, nem fut le (páratlan számok nem lesznek kiírva)
+    print(i, end = " ")
+print()
 
 # ciklusok else ága
