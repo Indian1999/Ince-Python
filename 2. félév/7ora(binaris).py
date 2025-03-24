@@ -117,3 +117,5 @@ maskQ4 = 192
 print(f"Az IP címed: {ipQ1}.{ipQ2}.{ipQ3}.{ipQ4}")
 print(f"A hálózati maszk: {maskQ1}.{maskQ2}.{maskQ3}.{maskQ4}")
 print(f"A hálózat IP címe: {ipQ1 & maskQ1}.{ipQ2 & maskQ2}.{ipQ3 & maskQ3}.{ipQ4 & maskQ4}")
+print(f"Összevagyolva: {ipQ1 | maskQ1}.{ipQ2 | maskQ2}.{ipQ3 | maskQ3}.{ipQ4 | maskQ4}")
+print(f"Össze-kizáróvagyolva: {ipQ1 ^ maskQ1}.{ipQ2 ^ maskQ2}.{ipQ3 ^ maskQ3}.{ipQ4 ^ maskQ4}")
