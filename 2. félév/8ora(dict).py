@@ -65,6 +65,7 @@ for sor in sorok:
     szöveg += sor.strip() 
     # A strip az elejéről és a végéről levágja a szóközeket és az entereket
     szöveg += " "
+f.close()
 
 szöveg = szöveg.lower()
 print(szöveg)
@@ -89,4 +90,21 @@ print(word_count)
 
 # Feladat: Olvassuk be az autok.txt file-t és egy dictionary-be számoljuk össze, 
 # hogy melyik márkából hány szerepel a fileban
+
+brands = []
+
+f = open("2. félév/autok.txt", "r", encoding="utf-8")
+for line in f:
+    brands.append(line.strip())
+f.close()
+
+brand_count = {}
+for item in brands:
+    if item in brand_count.keys():
+        brand_count[item] += 1
+    else:
+        brand_count[item] = 1
+        
+brand_count = dict(sorted(brand_count.items(), key=lambda x: x[1], reverse=True))
+print(brand_count)
     
