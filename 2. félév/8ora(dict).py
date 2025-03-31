@@ -1,43 +1,43 @@
 # Dictionary (Szótár) adatszerkezet
 # kulcs - érték párokat tárol
 
-dict = {} # Üres dictionary
+szotar = {} # Üres dictionary
 
-print(dict)
-print(type(dict))
+print(szotar)
+print(type(szotar))
 
 # Elemek hozzáadása
-dict["cica"] = "cat" # a cica kulcshoz tartozó érték, legyen cat
-dict["kutya"] = "dog"
-dict["boci"] = "cow"
-dict["kutya"] = "hound" 
+szotar["cica"] = "cat" # a cica kulcshoz tartozó érték, legyen cat
+szotar["kutya"] = "dog"
+szotar["boci"] = "cow"
+szotar["kutya"] = "hound" 
 # Mivel a kutya már szerepelt a szótárban, a hozzá tartozó értéket felül írtuk
-print(dict) # 3 kulcs-érték pár 
+print(szotar) # 3 kulcs-érték pár 
 
 # A kulcsok és értékek típusa lehet szinte bármi
-dict[7] = True
-dict[False] = [1,2,3]
-dict[3.14] = {"cat": 16}
-print(dict)
+szotar[7] = True
+szotar[False] = [1,2,3]
+szotar[3.14] = {"cat": 16}
+print(szotar)
 
 # Dictionary-k bejárása:
 
 # 1. módszer: A kulcsokon megyünk végig
-for key in dict.keys():
-    print(key, "->", dict[key])
+for key in szotar.keys():
+    print(key, "->", szotar[key])
     
 # 2. módszer: Mennyünk végig az értékeken
-for value in dict.values():
+for value in szotar.values():
     print(value)
 
 # Érték alapján nem tudjuk lekérdezni a kulcsokat, de kulcsok alapján megkaphatjuk az érékeket
 # A kulcsok egy dictionary-ben egyedi értékek, de az értékek ismétlődhetnek
 
 # 3. módszer: A kulcs-érték párokon mennyünk végig
-for item in dict.items():
+for item in szotar.items():
     print(item, item[0], item[1])
     
-for key, value in dict.items():
+for key, value in szotar.items():
     print(f"key: {key}, value: {value}")
     
 
@@ -58,5 +58,35 @@ for key in days_of_the_week.keys():
     
 print(days_of_the_week_reveresed)
 
+f = open("2. félév/rubik.txt", "r", encoding = "utf-8")
+szöveg = ""
+sorok = f.readlines()
+for sor in sorok:
+    szöveg += sor.strip() 
+    # A strip az elejéről és a végéről levágja a szóközeket és az entereket
+    szöveg += " "
 
+szöveg = szöveg.lower()
+print(szöveg)
+
+szavak = szöveg.split(" ") # A szöveget daraboljuk fel szóközek mentén
+# ez egy stringekből álló listát fog eredményezni
+
+word_count = {}
+for word in szavak:
+    if word in word_count.keys():
+        word_count[word] += 1
+    else:
+        word_count[word] = 1
+        
+print(word_count)
+
+# Dictionary rendezése
+print(sorted(word_count)) # Egy lista a szavakról abc sorrendben
+word_count = dict(sorted(word_count.items(), key=lambda x: x[1], reverse=True))
+print(word_count)
+
+
+# Feladat: Olvassuk be az autok.txt file-t és egy dictionary-be számoljuk össze, 
+# hogy melyik márkából hány szerepel a fileban
     
