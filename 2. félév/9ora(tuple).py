@@ -121,5 +121,35 @@ print(find_in_matrix_2(matrix, lambda x: x > 90)) # Ugyan azt valósítja meg, m
 print(find_in_matrix_2(matrix, lambda x: len(str(x)) == 1)) # 1 jegyű számot keres
 print(find_in_matrix_2(matrix, lambda x: x == 5)) # konkrétan az 5-öt
 
+# Kanyarodjunk vissza a tuple-ökre
+
+tuple1 = (1,2,3)
+tuple2 = (4,5,6)
+tuple3 = (2,1,3)
+tuple4 = (1,2,3)
+
+# Két tuple akkor lesz egyenlő, ha minden elemük rendre megyegyezik
+print(tuple1 == tuple2) # False
+print(tuple1 == tuple3) # False
+print(tuple1 == tuple4) # True
+
+print(tuple1 + tuple2)  # (1, 2, 3, 4, 5, 6)
+print(tuple1 * 3)       # (1, 2, 3, 1, 2, 3, 1, 2, 3)
+
+# feladat: Írjunk egy függvényt ami egy listában megtalálja a legkisebb értéket és visszaadja
+# a legkisebb elem indexét és értékét is
+lista = [random.randint(100, 999) for i in range(25)]
+print(lista)
+
+def find_minimum(lista):
+    min_index = 0
+    for i in range(1, len(lista)):
+        if lista[i] < lista[min_index]:
+            min_index = i
+    return min_index, lista[min_index]
+
+print(find_minimum(lista))        
+    
+
 
     
