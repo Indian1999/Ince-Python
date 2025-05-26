@@ -52,3 +52,45 @@ data = data.dropna(subset=["Date of Publication"])
 print(data["Date of Publication"].isna().sum())
 data["Date of Publication"] = data["Date of Publication"].astype(int)
 print(data)
+
+# Mostmár a Date of Publication oszlop tiszta adatokat tartalmaz
+
+
+
+#####################################################
+#         Place of Publication tisztítása           #
+#####################################################
+
+unique_places = data["Place of Publication"].value_counts()
+print(unique_places.head(15))
+"""
+london = data["Place of Publication"].str.contains("London")
+paris = data["Place of Publication"].str.contains("Paris")
+edinburgh = data["Place of Publication"].str.contains("Edinburgh")
+new_york = data["Place of Publication"].str.contains("New York")
+leipzig = data["Place of Publication"].str.contains("Leipzig")
+philadelphia = data["Place of Publication"].str.contains("Philadelphia")
+berlin = data["Place of Publication"].str.contains("Berlin")
+
+data["Place of Publication"] = np.where(london, "London", data["Place of Publication"])
+"""
+def find_substring_and_replace(data, city):
+    try:
+        city_list = data["Place of Publication"].str.contains(city)
+        data["Place of Publication"] = np.where(city_list, city, data["Place of Publication"])
+    except:
+        print("Hiba a következő város keresésénél:", city)
+        pass # Ez a kód akkor fut le, amikor a try blokkban hiba lépet
+    
+st_petersburg = data["Place of Publication"].str.contains("Петербург")
+data["Place of Publication"] = np.where(st_petersburg, "St. Petersburg", data["Place of Publication"])
+
+for city, count in unique_places.items():
+    find_substring_and_replace(data, city)
+    if count < 3:
+        break
+
+unique_places = data["Place of Publication"].value_counts()
+print(unique_places.head(30))
+
+data.to_csv("2. félév/12ora/library_clean.csv")
