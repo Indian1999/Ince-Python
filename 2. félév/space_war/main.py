@@ -80,7 +80,16 @@ YELLOW_SPACESHIP = pygame.image.load(os.path.join(ASSETS_PATH, "spaceship_yellow
 YELLOW_SPACESHIP = pygame.transform.scale(YELLOW_SPACESHIP, (SPACESHIP_WIDTH, SPACESHIP_HEIGHT))
 YELLOW_SPACESHIP = pygame.transform.rotate(YELLOW_SPACESHIP, 270)
 
-def draw_frame(red, yellow, red_bullets, yellow_bullets, red_health, yellow_health, meteors):
+SHIELD_WIDTH = SPACESHIP_WIDTH * 1.2
+SHIELD_HEIGHT = SPACESHIP_HEIGHT * 1.2
+SHIELD_IMAGE = pygame.image.load(os.path.join(ASSETS_PATH, "shield.png"))
+SHIELD_IMAGE = pygame.transform.scale(SHIELD_IMAGE, (SHIELD_WIDTH, SHIELD_HEIGHT))
+
+SHIELD_UPTIME = 5 * FPS    #  5 * 60 =  300 FRAME ( 5 mp)
+SHIELD_COOLDOWN = 30 * FPS # 30 * 60 = 1800 FRAME (30 mp)
+
+def draw_frame(red, yellow, red_bullets, yellow_bullets, red_health, 
+               yellow_health, meteors, red_shield_active, yellow_shield_active):
     window.blit(BACKGROUND, (0, 0))
     
     border_width = 10
@@ -94,6 +103,17 @@ def draw_frame(red, yellow, red_bullets, yellow_bullets, red_health, yellow_heal
     
     window.blit(RED_SPACESHIP, (red.x, red.y))
     window.blit(YELLOW_SPACESHIP, (yellow.x, yellow.y))
+    
+    if red_shield_active:
+        window.blit(SHIELD_IMAGE, 
+                    (red.x - (SHIELD_WIDTH - SPACESHIP_WIDTH) // 2, 
+                    red.y - (SHIELD_HEIGHT - SPACESHIP_HEIGHT) // 2)
+                    )
+    if yellow_shield_active:
+        window.blit(SHIELD_IMAGE, 
+                    (yellow.x - (SHIELD_WIDTH - SPACESHIP_WIDTH) // 2, 
+                    yellow.y - (SHIELD_HEIGHT - SPACESHIP_HEIGHT) // 2)
+                    )
     
     for meteor in meteors:
         window.blit(meteor.image, meteor.rect)
@@ -165,6 +185,11 @@ def main():
     yellow = pygame.Rect(150 - SPACESHIP_WIDTH, HEIGHT // 2 - SPACESHIP_HEIGHT // 2, SPACESHIP_WIDTH, SPACESHIP_HEIGHT)
     
     frame_counter = 0
+    red_shield_active = False
+    yellow_shield_active = False
+    red_shield_last_active = -SHIELD_COOLDOWN
+    yellow_shield_last_active = -SHIELD_COOLDOWN
+    
     
     red_bullets = []
     yellow_bullets = []
@@ -182,10 +207,10 @@ def main():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 exit()
-            if event.type == YELLOW_HIT:
+            if event.type == YELLOW_HIT and not yellow_shield_active:
                 yellow_health -= 1
                 HIT_SOUND.play()
-            if event.type == RED_HIT:
+            if event.type == RED_HIT and not red_shield_active:
                 red_health -= 1
                 HIT_SOUND.play()
             if event.type == pygame.KEYDOWN:
@@ -201,7 +226,17 @@ def main():
                                          BULLET_WIDTH, BULLET_HEIGHT)
                     red_bullets.append(bullet)
                     BULLET_FIRE_SOUND.play()
+                if event.key == pygame.K_LSHIFT and frame_counter > yellow_shield_last_active + SHIELD_COOLDOWN:
+                    yellow_shield_active = True
+                    yellow_shield_last_active = frame_counter
+                if event.key == pygame.K_RSHIFT and frame_counter > red_shield_last_active + SHIELD_COOLDOWN:
+                    red_shield_active = True
+                    red_shield_last_active = frame_counter
         
+        if frame_counter > red_shield_last_active + SHIELD_UPTIME:
+            red_shield_active = False
+        if frame_counter > yellow_shield_last_active + SHIELD_UPTIME:
+            yellow_shield_active = False
         keys_pressed = pygame.key.get_pressed()
         red_control(keys_pressed, red)
         yellow_control(keys_pressed, yellow)
@@ -211,7 +246,7 @@ def main():
             meteors.append(Meteor())
         for meteor in meteors:
             meteor.move()
-        draw_frame(red, yellow, red_bullets, yellow_bullets, red_health, yellow_health, meteors)
+        draw_frame(red, yellow, red_bullets, yellow_bullets, red_health, yellow_health, meteors, red_shield_active, yellow_shield_active)
         
         if red_health <= 0:
             draw_winner("Yellow Wins!")
