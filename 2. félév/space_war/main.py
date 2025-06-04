@@ -5,6 +5,10 @@ import random
 pygame.mixer.init()
 pygame.font.init()
 
+# Határozzuk meg annak a fájlnak a mappáját ami éppen fut
+ASSETS_PATH = os.path.dirname(os.path.abspath(__file__)) # space_war mappa
+ASSETS_PATH = os.path.join(ASSETS_PATH, "assets")
+
 # Ha egy változó csupa nagybetű, akkor azzal jelezzük, hogy ez egy "konstans"
 WIDTH = 900
 HEIGHT = 500
@@ -18,6 +22,34 @@ BULLET_VELOCITY = 8
 BULLET_WIDTH = 10
 BULLET_HEIGHT = 5
 
+METEOR_HEIGHT, METEOR_WIDTH = 50, 50
+METEOR_VELOCITY = 2
+
+class Meteor():
+    def __init__(self):
+        self.image = pygame.image.load(os.path.join(ASSETS_PATH, "meteor.png"))
+        self.image = pygame.transform.scale(self.image, (METEOR_WIDTH, METEOR_HEIGHT))
+        self.image = pygame.transform.rotate(self.image, 90)
+        self.new_direction()
+        self.rect = pygame.Rect(WIDTH // 2 - METEOR_WIDTH // 2,
+                                HEIGHT // 2 - METEOR_HEIGHT // 2,
+                                METEOR_WIDTH, METEOR_HEIGHT)
+        self.x = float(self.rect.x)
+        self.y = float(self.rect.y)
+        
+    def new_direction(self):
+        self.direction = random.randint(0, 359)
+        self.x_vel = math.cos(self.direction) * METEOR_VELOCITY
+        self.y_vel = math.sin(self.direction) * METEOR_VELOCITY
+        
+    def move(self):
+        self.x += self.x_vel
+        self.y += self.y_vel
+        self.rect.x = self.x
+        self.rect.y = self.y
+        if self.rect.x < -100 or self.rect.x > WIDTH + 100 or self.rect.y < -100 or self.rect.y > HEIGHT + 100:
+            self.new_direction()
+            
 YELLOW_HIT = pygame.USEREVENT + 1
 RED_HIT = pygame.USEREVENT + 2
 
@@ -31,9 +63,6 @@ clock = pygame.time.Clock() # Clock osztályát példányosítjuk
 window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Space War") # Ablak neve
 
-# Határozzuk meg annak a fájlnak a mappáját ami éppen fut
-ASSETS_PATH = os.path.dirname(os.path.abspath(__file__)) # space_war mappa
-ASSETS_PATH = os.path.join(ASSETS_PATH, "assets")
 
 BULLET_FIRE_SOUND = pygame.mixer.Sound(os.path.join(ASSETS_PATH, "laser.wav"))
 HIT_SOUND = pygame.mixer.Sound(os.path.join(ASSETS_PATH, "explosion.wav"))
@@ -51,7 +80,7 @@ YELLOW_SPACESHIP = pygame.image.load(os.path.join(ASSETS_PATH, "spaceship_yellow
 YELLOW_SPACESHIP = pygame.transform.scale(YELLOW_SPACESHIP, (SPACESHIP_WIDTH, SPACESHIP_HEIGHT))
 YELLOW_SPACESHIP = pygame.transform.rotate(YELLOW_SPACESHIP, 270)
 
-def draw_frame(red, yellow, red_bullets, yellow_bullets, red_health, yellow_health):
+def draw_frame(red, yellow, red_bullets, yellow_bullets, red_health, yellow_health, meteors):
     window.blit(BACKGROUND, (0, 0))
     
     border_width = 10
@@ -65,6 +94,9 @@ def draw_frame(red, yellow, red_bullets, yellow_bullets, red_health, yellow_heal
     
     window.blit(RED_SPACESHIP, (red.x, red.y))
     window.blit(YELLOW_SPACESHIP, (yellow.x, yellow.y))
+    
+    for meteor in meteors:
+        window.blit(meteor.image, meteor.rect)
     
     for bullet in red_bullets:
         pygame.draw.rect(window, RED_BULLET_COLOR, bullet)
@@ -81,6 +113,8 @@ def red_control(keys_pressed, red):
         red.y -= VELOCITY
     if keys_pressed[pygame.K_DOWN] and red.y <= HEIGHT - SPACESHIP_HEIGHT:
         red.y += VELOCITY
+        
+    
 
 def yellow_control(keys_pressed, yellow):
     if keys_pressed[pygame.K_w] and yellow.y >= 0:
@@ -92,7 +126,7 @@ def yellow_control(keys_pressed, yellow):
     if keys_pressed[pygame.K_d] and yellow.x  <= WIDTH // 2 - SPACESHIP_WIDTH:
         yellow.x += VELOCITY
 
-def handle_bullets(red_bullets, yellow_bullets, red, yellow):
+def handle_bullets(red_bullets, yellow_bullets, red, yellow, meteors):
     for bullet in red_bullets:
         bullet.x -= BULLET_VELOCITY
         if bullet.x < 0:
@@ -100,6 +134,7 @@ def handle_bullets(red_bullets, yellow_bullets, red, yellow):
         if yellow.colliderect(bullet):
             pygame.event.post(pygame.event.Event(YELLOW_HIT))
             red_bullets.remove(bullet)
+            
     for bullet in yellow_bullets:
         bullet.x += BULLET_VELOCITY
         if bullet.x > WIDTH:
@@ -107,6 +142,14 @@ def handle_bullets(red_bullets, yellow_bullets, red, yellow):
         if red.colliderect(bullet):
             pygame.event.post(pygame.event.Event(RED_HIT))
             yellow_bullets.remove(bullet)
+            
+    for meteor in meteors:
+        if red.colliderect(meteor.rect):
+            pygame.event.post(pygame.event.Event(RED_HIT))
+            meteors.remove(meteor)
+        if yellow.colliderect(meteor.rect):
+            pygame.event.post(pygame.event.Event(YELLOW_HIT))
+            meteors.remove(meteor)
             
 def draw_winner(text):
     font = pygame.font.SysFont("Arial", 100)
@@ -121,13 +164,20 @@ def main():
     red = pygame.Rect(WIDTH - 150, HEIGHT // 2 - SPACESHIP_HEIGHT // 2, SPACESHIP_WIDTH, SPACESHIP_HEIGHT)
     yellow = pygame.Rect(150 - SPACESHIP_WIDTH, HEIGHT // 2 - SPACESHIP_HEIGHT // 2, SPACESHIP_WIDTH, SPACESHIP_HEIGHT)
     
+    frame_counter = 0
+    
     red_bullets = []
     yellow_bullets = []
+    
+    meteors = []
+    for i in range(3):
+        meteors.append(Meteor())
     
     red_health = 10
     yellow_health = 10
     while True:
         clock.tick(FPS) # 60 - 1 másodperc 60-ad részét várakozunk
+        frame_counter += 1
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -155,8 +205,13 @@ def main():
         keys_pressed = pygame.key.get_pressed()
         red_control(keys_pressed, red)
         yellow_control(keys_pressed, yellow)
-        handle_bullets(red_bullets, yellow_bullets, red, yellow)
-        draw_frame(red, yellow, red_bullets, yellow_bullets, red_health, yellow_health)
+        handle_bullets(red_bullets, yellow_bullets, red, yellow, meteors)
+        # minden 600. framben készítünk egy új meteort
+        if frame_counter % (FPS * 10) == 0: # frame-nek száma osztható 600 (FPS = 60)
+            meteors.append(Meteor())
+        for meteor in meteors:
+            meteor.move()
+        draw_frame(red, yellow, red_bullets, yellow_bullets, red_health, yellow_health, meteors)
         
         if red_health <= 0:
             draw_winner("Yellow Wins!")
