@@ -9,10 +9,10 @@ SCORE_COLOR = (255, 255, 255) # fehér
 GAME_OVER_COLOR = (255, 0, 0) # piros
 
 # Érdemes úgy, hogy sok közös osztójuk legyen
-WIDTH = 600
-HEIGHT = 400
-PIXEL_SIZE = 20 # WIDTH és HEIGHT-ot osztja
-SPEED = 8 # FPS  
+WIDTH = 1000
+HEIGHT = 500
+PIXEL_SIZE = 50 # WIDTH és HEIGHT-ot osztja
+SPEED = 6 # FPS  
 
 window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("snake")
