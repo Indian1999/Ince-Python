@@ -63,10 +63,40 @@ class Users:
                 return user
         raise Exception(f"Did not find user with id: {id}.")
         
+class Task:
+    def __init__(self, id, storypoints, name, hours):
+        self.id = id
+        self.storypoints = storypoints
+        self.name = name
+        self.hours = hours # [ (id1, 12), (id232, 32), (id32213, 11)]
+    
+    def total_hours(self) -> int:
+        összeg = 0
+        for item in self.hours: # item: (id1, 12)
+            összeg += item[1]
+        return összeg
 
-users = Users(export["users"])
-print(users.get_user("83i2kkwwj3")) # 83i2kkwwj3, Joe (developer)
-#print(users.get_user("83isadsaj3")) # HIBA
+class Sprint:
+    def __init__(self, id, tasks):
+        self.id = id
+        self.tasks = []
+        for item in tasks:
+            task = Task(item["_id"], item["storypoint"], item["task"], item["hours"])
+            self.tasks.append(task)
+
+    def total_storypoints(self):
+        összeg = 0
+        for item in self.tasks:
+            összeg += item.storypoints
+        return összeg
+    
+class Sprints:
+    def __init__(self, sprints):
+        self.sprints = []
+        for item in sprints:
+            newSprint = Sprint(item["_id"], item["tasks"])
+            self.sprints.append(newSprint)
+
 
 
 
@@ -76,6 +106,16 @@ print(users.get_user("83i2kkwwj3")) # 83i2kkwwj3, Joe (developer)
 
 
 """
+myTask = Task("id123", 60, "testTask", [ ("id1", 12), ("id232", 32), ("id32213", 11)])
+print(myTask.total_hours()) # 55
+
+
+
+users = Users(export["users"])
+print(users.get_user("83i2kkwwj3")) # 83i2kkwwj3, Joe (developer)
+#print(users.get_user("83isadsaj3")) # HIBA
+
+
 myUser = User("myId1", "12345", "John", "Developer")
 print(myUser.role)
 print(myUser) # <__main__.User object at 0x000001F28F47F110>
