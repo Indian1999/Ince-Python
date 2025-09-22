@@ -47,5 +47,29 @@ class User:
         self.name = name
         self.role = role
 
+    def __str__(self):
+        return f"{self.id}, {self.name} ({self.role})"
+    
+class Users:
+    def __init__(self, users: list[dict]):
+        self.users = []
+        for user in users:
+            példány = User(user["_id"], "", user["name"], user["role"])
+            self.users.append(példány)
+
+
+
+
+
+
+
+
+
+
+
 myUser = User("myId1", "12345", "John", "Developer")
 print(myUser.role)
+print(myUser) # <__main__.User object at 0x000001F28F47F110>
+szöveg = str(myUser)
+print(szöveg) # <__main__.User object at 0x000001F28F47F110>
+# Ahoz hogy ezt orvosulj, felül kell írnunk az str() függvény működését a User osztályban
