@@ -56,6 +56,17 @@ class Users:
         for user in users:
             példány = User(user["_id"], "", user["name"], user["role"])
             self.users.append(példány)
+    
+    def get_user(self, id: str) -> User:
+        for user in self.users:
+            if user.id == id:
+                return user
+        raise Exception(f"Did not find user with id: {id}.")
+        
+
+users = Users(export["users"])
+print(users.get_user("83i2kkwwj3")) # 83i2kkwwj3, Joe (developer)
+#print(users.get_user("83isadsaj3")) # HIBA
 
 
 
@@ -64,12 +75,11 @@ class Users:
 
 
 
-
-
-
+"""
 myUser = User("myId1", "12345", "John", "Developer")
 print(myUser.role)
 print(myUser) # <__main__.User object at 0x000001F28F47F110>
 szöveg = str(myUser)
 print(szöveg) # <__main__.User object at 0x000001F28F47F110>
 # Ahoz hogy ezt orvosulj, felül kell írnunk az str() függvény működését a User osztályban
+"""
