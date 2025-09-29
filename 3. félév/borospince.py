@@ -1,0 +1,1 @@
+# Link: https://richardkorom.hu/feladatok/programozas/oop/#
