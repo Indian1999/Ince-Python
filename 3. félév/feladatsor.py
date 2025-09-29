@@ -99,12 +99,6 @@ class Sprints:
 
 
 
-
-
-
-
-
-
 """
 myTask = Task("id123", 60, "testTask", [ ("id1", 12), ("id232", 32), ("id32213", 11)])
 print(myTask.total_hours()) # 55
