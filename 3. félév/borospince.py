@@ -7,6 +7,8 @@ class BorospinceException(Exception):
 
 class Bor:
     def __init__(self, evjarat, fajta, alkoholtartalom = 12.5):
+        if 0 > alkoholtartalom or 100 < alkoholtartalom:
+            raise BorospinceException("Az alkoholtartalomnak 0 és 100 között kell lennie!")
         self.evjarat = evjarat
         self.fajta = fajta
         self.alkoholtartalom = alkoholtartalom
@@ -35,8 +37,27 @@ class Bor:
             return True
         return False
         
+class Szekreny:
+    def __init__(self):
+        self.borok = []
+
+    def get_bor(self, n: int) -> Bor:
+        if type(n) != int:
+            raise BorospinceException("Az index nem egész szám!")
+        if n < 0 or n >= len(self.borok):
+            raise BorospinceException("Nem létező index!")
+        return self.borok[n]
+
+    def __iadd__(self, value):
+        if type(value) != Bor:
+            raise TypeError("Nem bor!")
+        self.borok.append(value)
+        return self
 
 bor1 = Bor(2000, "vörös")
-bor1.setEvjarat(2015)
-print(bor1.getEvjarat())
-    
+bor2 = Bor(2023, "Villányi", 15)
+
+polc = Szekreny()
+polc += bor1
+polc += bor2
+print(polc.get_bor(0))
