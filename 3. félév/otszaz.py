@@ -2,6 +2,17 @@ class Vasarlas:
     def __init__(self, lista:list = []):
         self.termekek = lista.copy()
 
+    def vegosszeg(self):
+        kosar = {}
+        for item in self.termekek:
+            if item not in kosar.keys():
+                kosar[item] = 1
+            else:
+                kosar[item] += 1
+        osszeg = 0
+        for value in kosar.values():
+            osszeg += ertek(value)
+
 def beolvasas() -> list[Vasarlas]:
     with open("3. félév/penztar.txt", "r", encoding="utf-8") as f:
         vasarlasok = []
@@ -70,3 +81,7 @@ for item in vasarlas.termekek:
 for key in kosar.keys():
     print(f"{kosar[key]} {key}")
 print()
+
+print("8. feladat")
+
+print("osszeg.txt létrehozva")
