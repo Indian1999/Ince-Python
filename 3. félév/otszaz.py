@@ -12,6 +12,7 @@ class Vasarlas:
         osszeg = 0
         for value in kosar.values():
             osszeg += ertek(value)
+        return osszeg
 
 def beolvasas() -> list[Vasarlas]:
     with open("3. félév/penztar.txt", "r", encoding="utf-8") as f:
@@ -83,5 +84,7 @@ for key in kosar.keys():
 print()
 
 print("8. feladat")
-
+with open("3. félév/osszeg.txt", "w", encoding="utf-8") as f:
+    for i in range(len(vasarlasok)):
+        f.write(f"{i+1}: {vasarlasok[i].vegosszeg()}\n")
 print("osszeg.txt létrehozva")
