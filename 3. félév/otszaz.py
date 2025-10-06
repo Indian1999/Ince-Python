@@ -58,3 +58,15 @@ def ertek(db):
 print("6. feladat")
 print(f"{darabszam} darab vételekor fizetendő: {ertek(darabszam)}")
 print()
+
+print("7. feladat")
+vasarlas = vasarlasok[sorszam]
+kosar = {}
+for item in vasarlas.termekek:
+    if item not in kosar.keys():
+        kosar[item] = 1
+    else:
+        kosar[item] += 1
+for key in kosar.keys():
+    print(f"{kosar[key]} {key}")
+print()
