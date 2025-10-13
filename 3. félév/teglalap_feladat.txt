@@ -1,0 +1,27 @@
+1. feladat:
+Írj egy Rectangle osztályt, amelynek vannak width és height attribútumai, konstruktorral. 
+
+2. feladat:
+Valósítsd meg az area() (terület) és perimeter() (kerület) metódusokat. Adj egy rövid példa használatot a kódban!
+
+3. feladat:
+Implementáld az __str__ metódust a Rectangle osztályban, oly módon, hogy kiírásnál egy ilyen szerkezetű karakterlánc jelenjen meg: Rectangle(width=10, height=5)
+
+4. feladat:
+Készíts egy RectangleContainer osztályt, amelynek egy rectangles attributuma van, amely Rectangle objektumokat tárol, a lista alapértelmezett értéke legyen üres lista, de konstruktorban lehessen egy konkrét listával is inicializálni
+
+5. feladat:
+Készíts egy metódust a RectangleContainer osztályba area_sum() néven, amely visszaadja a rectangles listában található téglalapok területének összegét.
+
+6. feladat:
+Írd felül a RectangleContainer += Rectangle operátorát úgy, hogy ezt használva egy új téglalapot adhassunk hozzá a rectangles listához. (__iadd__)
+
+7. feladat:
+Készíts egy export nevű függvényt a RectangleContainer osztályba, amely paraméterben egy file elérési útvonalát kapja meg. Az export függvény írja bele ebbe az állományba a rectangles lista tartalmát, minden egyes téglalap új sorba kerüljön!
+példa:
+Rectangle(width=10, height=5)
+Rectangle(width=20, height=22)
+Rectangle(width=12, height=15)
+Rectangle(width=18, height=51)
+Rectangle(width=5, height=6)
+Rectangle(width=9, height=7)
