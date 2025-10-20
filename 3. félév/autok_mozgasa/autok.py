@@ -77,3 +77,24 @@ for auto in autok:
             last_time = current_time
             last_speed = auto.sebesseg
             print(f"{auto.ora}:{auto.perc} {round(total_km ,1)} km")
+
+# 7. feladat:
+
+autoDict = {} # rendszam (kulcs), az érték: előfordulások időpontjai (lista)
+for auto in autok:
+    if auto.rendszam in autoDict.keys():
+        autoDict[auto.rendszam].append(auto.ora * 60 + auto.perc)
+    else:
+        autoDict[auto.rendszam] = [auto.ora * 60 + auto.perc]
+
+with open(f"{__file__}/../ido.txt", "w", encoding="utf-8") as f:
+    for rendszam in autoDict.keys():
+        elso = min(autoDict[rendszam])
+        utolso = max(autoDict[rendszam])
+        elso_perc = elso % 60
+        elso_ora = elso // 60
+        utolso_perc = utolso % 60
+        utolso_ora = utolso // 60
+        f.write(f"{rendszam} {elso_ora} {elso_perc} {utolso_ora} {utolso_perc}\n")
+
+
