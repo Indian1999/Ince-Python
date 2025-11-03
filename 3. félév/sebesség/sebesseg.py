@@ -80,6 +80,30 @@ print("4. feladat:")
 city_percentage = get_city_distances(distances, speed_limiters) / length * 100
 print(f"Az út {round(city_percentage, 2)} %-a vezet településen belül.")
 
+def city_properties(distances, speed_limiters, city):
+    counter = 0
+    city_found = False
+    city_start = None
+    city_length = None
+    for i in range(len(distances)):
+        if speed_limiters[i] == city:
+            city_found = True
+            city_start = distances[i]
+        if city_found and speed_limiters[i].isdigit():
+            counter += 1
+        if city_found and speed_limiters[i] == "]":
+            city_length = distances[i] - city_start 
+            break
+    return counter, city_length
+
+
+print("5. feladat:")
+city = input("Add meg egy város nevét: ")
+tablak, hossz = city_properties(distances, speed_limiters, city)
+print(f"A sebességkorlátozó táblák száma: {tablak}")
+print(f"Az út hossza a településen belül {hossz} méter.")
+
+
 
 
 
