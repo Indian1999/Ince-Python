@@ -103,6 +103,40 @@ tablak, hossz = city_properties(distances, speed_limiters, city)
 print(f"A sebességkorlátozó táblák száma: {tablak}")
 print(f"Az út hossza a településen belül {hossz} méter.")
 
+print("6. feladat:")
+cities = []
+for i in range(len(distances)):
+    if len(speed_limiters[i]) >= 4:
+        cityDict = {
+            "name": speed_limiters[i],
+            "start": distances[i]
+        } 
+        cities.append(cityDict)
+    if speed_limiters[i] == "]":
+        cities[-1]["end"] = distances[i]
+
+city = input("Add meg egy város nevét!\n")
+closest_city = None
+for i in range(len(cities)):
+    if cities[i]["name"] == city:
+        if i != 0 and i != len(cities) - 1: # nem az első és nem az utolsó város
+            prev_distance = cities[i]["start"] - cities[i-1]["end"]
+            next_distance = cities[i+1]["start"] - cities[i]["end"]
+            if prev_distance >= next_distance:
+                closest_city = cities[i-1]["name"]
+            else:
+                closest_city = cities[i+1]["name"]
+        elif i == 0:
+            closest_city = cities[i+1]["name"]
+        else:
+            closest_city = cities[i-1]["name"]
+
+if closest_city == None:
+    print("Nincs az útszakaszon ilyen nevű város.")
+else:
+    print(f"A {city} városhoz legközelebbi város: {closest_city}")
+
+
 
 
 
