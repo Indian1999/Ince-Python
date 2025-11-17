@@ -127,12 +127,20 @@ _____#_____
 _____#_____
 """
 
-n = 6
+n = 15
 for i in range(1, n + 1):
     print(" " * (n-i),    (i*2 - 1) * "#",    " " * (n-i), sep="")
 for i in range(2):
     print(" " * (n-1),    "#",    " " * (n-1), sep="")
 
+print("     #     ")
+print("    ###    ")
+print("   #####   ")
+print("  #######  ")
+print(" ######### ")
+print("###########")
+print("     #     ")
+print("     #     ")
 
 
 
