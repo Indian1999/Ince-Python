@@ -14,6 +14,6 @@
 
 # 8. Készíts függvényt, amely két listát összefűz egy új listába, a + operátor használata nélkül.
 
-# 9. List comprehKészíts listát, amely egy adott szöveg összes karakterének ASCII kódját tartalmazza.
+# 9. Készíts listát, amely egy adott szöveg összes karakterének ASCII kódját tartalmazza.
 
-# 10. Kombinált fAdj meg egy listát 1-20-ig, majd list comprehensionmel készíts új listát, amelyben minden szám négyzete szerepel, de csak a páros számoké.
+# 10. Adj meg egy listát 1-20-ig, majd list comprehensionmel készíts új listát, amelyben minden szám négyzete szerepel, de csak a páros számoké.
