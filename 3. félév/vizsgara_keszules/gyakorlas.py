@@ -82,3 +82,62 @@ print(get_ascii_list("A cica felmászott a fára."))
 lista = [i for i in range(1, 21)]
 new_list = [item**2 for item in lista if item % 2 == 0]
 print(new_list) 
+
+# 11. Írj egy függvényt ami egy lista átlagát számolja ki
+jegyek = [3,2,5,4,1,5,4,5,3,2]
+print("osztályzatok:", jegyek)
+print("osztályzatok rendezve:", sorted(jegyek))
+
+def atlag(lista):
+    total = 0
+    for item in lista:
+        total += item
+    if len(lista) == 0:
+        return None
+    return total / len(lista)
+
+print("átlag:", atlag(jegyek))
+# 12. Írj egy függvényt ami egy lista móduszát számolja ki
+def modusz(lista):
+    itemCounter = {}
+    for item in lista:
+        if item in itemCounter.keys():
+            itemCounter[item] += 1
+        else:
+            itemCounter[item] = 1
+
+    maxValue = -float("inf")
+    maxKey = None
+    for key, item in itemCounter.items():
+        if item > maxValue:
+            maxValue = item
+            maxKey = key
+    return maxKey
+
+print("módusz:", modusz(jegyek))
+
+# 13. Írj egy függvényt ami egy lista mediánját számolja ki
+
+def median(lista):
+    sorted_list = sorted(lista)
+    if len(lista) % 2 == 0:
+        midPoint = len(lista) // 2
+        return (sorted_list[midPoint] + sorted_list[midPoint-1]) / 2
+    else:
+        midPoint = len(lista) // 2
+        return sorted_list[midPoint]
+
+print("medián:", median(jegyek))
+# 14. Írj egy függvényt ami egy lista szórását számolja ki
+
+def szoras(lista):
+    if len(lista) == 0:
+        return None
+    average = atlag(lista)
+    összeg = 0
+    for item in lista:
+        összeg += (item - average)**2
+    return (összeg / len(lista)) ** 0.5 # feledik hatvány = négyzetgyök
+
+print("szórás:", szoras(jegyek))
+
