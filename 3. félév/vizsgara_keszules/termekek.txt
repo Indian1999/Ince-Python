@@ -1,0 +1,804 @@
+alma
+barack
+cseresznye
+dinnye
+eper
+füge
+körte
+málna
+narancs
+őszibarack
+szilva
+szőlő
+ananász
+banán
+citrom
+grapefruit
+kiwi
+mangó
+papaya
+mandarin
+alma
+kenyér
+tej
+vaj
+sajt
+joghurt
+túró
+tejföl
+barack
+csirkemell
+sertéshús
+marhahús
+sonka
+szalámi
+virsli
+hal
+tojás
+rizs
+tészta
+alma
+liszt
+cukor
+só
+bors
+olaj
+ecet
+mustár
+ketchup
+majonéz
+körte
+burgonya
+paradicsom
+uborka
+paprika
+hagyma
+fokhagyma
+sárgarépa
+zeller
+brokkoli
+karfiol
+alma
+káposzta
+saláta
+retek
+cékla
+spenót
+spárga
+cukkini
+padlizsán
+gomba
+banán
+kávé
+tea
+kakaó
+üdítő
+ásványvíz
+gyümölcslé
+sör
+bor
+pálinka
+alma
+csokoládé
+keksz
+sütemény
+torta
+fagylalt
+chips
+popcorn
+mogyoró
+mandula
+dió
+körte
+müzli
+gabonapehely
+méz
+lekvár
+nutella
+pizza
+hamburger
+hot dog
+szendvics
+alma
+sajtos rúd
+perec
+croissant
+fánk
+palacsinta
+gofri
+barack
+tejcsokoládé
+fehércsokoládé
+étcsokoládé
+rágógumi
+cukorka
+nyalóka
+zselé
+alma
+puding
+krémes
+túrórudi
+kefir
+aludttej
+vaníliás tej
+kakaós tej
+körte
+gyümölcsjoghurt
+sajtkrém
+mascarpone
+mozzarella
+parmezán
+gouda
+camembert
+alma
+kecskesajt
+blue cheese
+cottage cheese
+trapista sajt
+füstölt sajt
+barack
+bacon
+kolbász
+hurka
+pacal
+máj
+zúza
+szív
+alma
+vese
+agy
+császárszalonna
+oldalas
+comb
+lapocka
+körte
+bélszín
+roston sült
+rostélyos
+pörkölt
+gulyás
+pörkölt hús
+alma
+lazac
+tonhal
+hering
+szardínia
+makréla
+fogas
+ponty
+csuka
+harcsa
+barack
+garnélarák
+homár
+kagyló
+rák
+polip
+tintahal
+alma
+rák farok
+fehérbor
+vörösbor
+rozé
+pezsgő
+prosecco
+champagne
+whisky
+vodka
+rum
+körte
+gin
+tequila
+likőr
+vermut
+alma
+aperitif
+cognac
+brandy
+barack
+lángos
+jégkrém
+sorbet
+tiramisu
+panna cotta
+brownie
+muffin
+alma
+cupcake
+macaron
+éclair
+profiterol
+szezámmagos zsemle
+teljes kiőrlésű kenyér
+bagel
+körte
+ciabatta
+focaccia
+bazsalikom
+oregánó
+rozmaring
+kakukkfű
+petrezselyem
+koriander
+alma
+curry
+gyömbér
+szerecsendió
+fahéj
+vanília
+kardamom
+kurkuma
+paprika por
+barack
+chili
+cayenne bors
+sáfrány
+szegfűszeg
+ánizs
+édeskömény
+alma
+majoránna
+zsálya
+menta
+levendula
+rebarbara
+áfonya
+fekete ribizli
+körte
+piros ribizli
+bodza
+homoktövis
+csipkebogyó
+galagonya
+som
+alma
+meggy
+amaretto
+baileys
+jägermeister
+campari
+martini
+barack
+absint
+sake
+metaxa
+ouzo
+alma
+grappa
+cointreau
+kahlua
+amarula
+frangelico
+sambuca
+körte
+aperol
+limoncello
+fernet
+pastis
+alma
+kínai tea
+zöld tea
+fekete tea
+gyümölcstea
+gyógytea
+kamilla tea
+barack
+menta tea
+hibiszkusz tea
+rooibos tea
+earl grey
+oolong tea
+matcha
+alma
+espresso
+cappuccino
+latte
+americano
+macchiato
+mocha
+körte
+frappuccino
+jégkávé
+instant kávé
+kávébab
+őrölt kávé
+alma
+energiaital
+cola
+fanta
+sprite
+pepsi
+barack
+tonic water
+gyömbérsör
+limonádé
+almalé
+narancslé
+alma
+őszibarack lé
+körtelé
+szőlőlé
+meggylé
+vegyes gyümölcslé
+paradicsomlé
+körte
+répalé
+zellerylé
+multivitamin
+aloe vera ital
+kókuszvíz
+alma
+rizstej
+mandulatej
+zabtej
+szójatej
+kókusztej
+barack
+árpagyöngy
+köles
+bulgur
+kuszkusz
+quinoa
+hajdina
+alma
+zabpehely
+korpehely
+körte
+lencsemag
+bab
+csicseriborsó
+szójabab
+zöldborsó
+alma
+kukorica
+édesburgonya
+tök
+patisszon
+barack
+articsóka
+rebarbara
+fejes saláta
+jégsaláta
+rukkola
+alma
+mángold
+kelkáposzta
+kínai kel
+pak choi
+fehérrépa
+körte
+pasztinák
+karalábé
+torma
+retek
+wasabi
+alma
+curry paszta
+szójaszósz
+halszósz
+osztriga szósz
+teriyaki szósz
+barack
+hoisin szósz
+sriracha
+tabasco
+worcester szósz
+balzsamecet
+alma
+almaecet
+borsos ecet
+rizsecet
+napraforgóolaj
+olívaolaj
+körte
+kókuszolaj
+szezámolaj
+repceolaj
+lenmagolaj
+tökmag olaj
+alma
+diófaolaj
+avokádó olaj
+barack
+tahini
+pesto
+tapenade
+humusz
+guacamole
+salsa
+alma
+tzatziki
+ajvar
+körte
+zakuszka
+cheddar
+ricotta
+feta
+halloumi
+brie
+emmentáli
+alma
+raclette
+tilsiter
+appenzeller
+gruyère
+provolone
+ásványvíz szénsavas
+barack
+ásványvíz mentes
+alma
+jeges tea
+smoothie
+protein shake
+izotóniás ital
+körte
+szódavíz
+tonik
+bitter lemon
+ginger ale
+alma
+barack
+málna
+eper
+szeder
+áfonya
+vörösáfonya
+körte
+alma
+banán
+kiwi
+mangó
+papaya
+maracuja
+alma
+körte
+barack
+szilva
+cseresznye
+meggy
+alma
+dinnye
+sárgadinnye
+görögdinnye
+körte
+banán
+ananász
+kókuszdió
+alma
+licsi
+rambután
+durian
+pitahaya
+körte
+gránátalma
+persimmon
+kumquat
+alma
+csipkebogyó
+feketeszeder
+vadszőlő
+barack
+csipkebogyó
+som
+galagonya
+alma
+homoktövis
+fekete bodza
+körte
+vörösáfonya
+áfonya
+fekete ribizli
+alma
+piros ribizli
+fehér ribizli
+barack
+egres
+málna
+szeder
+alma
+szamóca
+eper
+földieper
+vadhogy
+körte
+vadcseresznye
+alma
+sárgabarack
+őszibarack
+nektarin
+barack
+barack
+alma
+körte
+szilva
+ringlószilva
+alma
+mirabella
+japán naspolya
+naspolya
+birs
+körte
+narancs
+mandarin
+klementina
+alma
+tangerin
+grapefruit
+pomelo
+barack
+citrom
+lime
+kumquat
+alma
+bergamott
+yuzu
+körte
+banán
+plantain
+alma
+datolya
+füge
+szárított füge
+barack
+aszalt szilva
+aszalt sárgabarack
+körte
+mazsolva
+aszalt alma
+aszalt körte
+alma
+aszalt datolya
+aszalt füge
+aszalt ananász
+barack
+aszalt mangó
+aszalt papaya
+alma
+aszalt kókusz
+mogyoró
+mandula
+körte
+dió
+kesudió
+pisztácia
+alma
+para dió
+makadámia
+pekándió
+barack
+fenyőmag
+napraforgómag
+tökmag
+alma
+lenmag
+chia mag
+körte
+szezámmag
+mák
+alma
+kömény
+körömvirág
+barack
+édeskömény mag
+ánizsmag
+alma
+kориander mag
+mustármag
+körte
+metéllőhagyma
+snidling
+alma
+kapor
+petrezselyem
+barack
+zellerlevél
+lovorage
+alma
+bazsalikom
+oregánó
+körte
+majoránna
+kakukkfű
+rozmaring
+alma
+zsálya
+levendula
+barack
+borsmenta
+citromfű
+alma
+citromfű tea
+körte
+kamilla
+hibiszkusz
+alma
+málnalevél
+barack
+bodza virág
+hársfavirág
+alma
+csipkebogyó tea
+gyömbér tea
+körte
+kurkuma tea
+fahéj tea
+alma
+chai tea
+masala chai
+barack
+matcha latte
+chai latte
+alma
+kávé latte
+cappuccino
+körte
+flat white
+cortado
+alma
+ristretto
+lungo
+barack
+doppio
+alma
+affogato
+körte
+irish coffee
+vízbifali tej
+barack
+kecskete
+juhtej
+alma
+teve tej
+körte
+jégkrémlikor
+barack
+sima víz
+alma
+szénsavas víz
+forrásvíz
+körte
+ásványvíz
+gyógyvíz
+barack
+üdítőital
+alma
+energi drink
+izotónia
+körte
+sportital
+rehidráló ital
+barack
+elektrolit ital
+alma
+vitamin ital
+funkcional ital
+körte
+prebiotikus ital
+probiotikus ital
+barack
+kombucha
+kefir ital
+alma
+ayran
+lassi
+körte
+mangó lassi
+barack
+banana shake
+alma
+protein por
+kreatin
+körte
+BCAA
+glutamin
+barack
+taurin
+koffein
+alma
+l-karnitin
+beta-alanin
+körte
+citrullin
+arginin
+barack
+kollagén por
+alma
+spirulina
+chlorella
+körte
+búzafű por
+árpafű por
+barack
+acai por
+maca por
+alma
+goji bogyó
+acerola
+körte
+camu camu
+barack
+baobab por
+alma
+moringa por
+ashwagandha
+körte
+kurkuma kapszula
+omega-3
+barack
+halolaj
+lenmag olaj kapszula
+alma
+E-vitamin
+C-vitamin
+körte
+D-vitamin
+B-komplex
+barack
+vas tabletta
+magnézium
+alma
+kalcium
+cink
+körte
+szelén
+króm
+barack
+jód
+réz
+alma
+mangán
+molibdén
+körte
+kálium
+foszfor
+barack
+koenzim Q10
+alma
+rezveratrol
+likopen
+körte
+quercetin
+lutein
+barack
+zeaxantin
+asztaxantin
+alma
+béta-karotin
+alfa-karotin
+körte
+probiotikum
+prebiotikum
+barack
+emésztőenzim
+alma
+gyömbér kapszula
+körte
+fokhagyma kapszula
+ginseng
+barack
+guarana
+zöld kávé kivonat
+alma
+zöld tea kivonat
+fekete tea
+körte
+white tea
+pu-erh tea
+barack
+yerba mate
+guayusa
+alma
+gyógynövény tea
+detox tea
+körte
+fogyasztó tea
+hashajtó tea
+barack
+nyugtató tea
+altató tea
+alma
+immunerősítő tea
+köhögés elleni tea
+körte
+megfázás elleni tea
+barack
