@@ -1,0 +1,11 @@
+cim;szerzo;kiadas_eve;oldalszam
+Egri csillagok;Gárdonyi Géza;1901;420
+A Pál utcai fiúk;Molnár Ferenc;1906;218
+Tüskevár;Fekete István;1957;287
+Az arany ember;Jókai Mór;1950;380
+Harry Potter és a bölcsek köve;J.K. Rowling;2001;311
+A gyűrűk ura;J.R.R. Tolkien;2002;412
+Az éhezők viadala;Suzanne Collins;2010;374
+Divergent;Veronica Roth;2012;356
+A marsi;Andy Weir;2014;289
+Dűne;Frank Herbert;2021;378
