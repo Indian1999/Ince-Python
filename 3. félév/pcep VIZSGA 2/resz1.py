@@ -27,14 +27,12 @@ def tizedes_eltolas(num, x):
                 num[tizedes_index], num[tizedes_index-1] = num[tizedes_index-1], num[tizedes_index]
                 num.insert(0, "0")
         else: # jobbra
-            print(num, tizedes_index)
             if tizedes_index < len(num) - 1:
                 num[tizedes_index], num[tizedes_index+1] = num[tizedes_index+1], num[tizedes_index]
                 tizedes_index += 1
             else:
                 num.insert(tizedes_index, "0")
                 tizedes_index += 1
-            print(num, tizedes_index)
     if num[-1] == ".":
         num.append("0")
     return "".join(num) # "" elválasztó stringgel összefűzi a lista elemeit
@@ -42,7 +40,7 @@ def tizedes_eltolas(num, x):
 mantissza = float(input("Add meg a mantisszát: "))
 kitevő = int(input("Add meg a kitevőt: "))
 print(f"Tényleges érték: {tizedes_eltolas(mantissza, kitevő)}")
-print(f"Tudományos alak: {mantissza * 10 ** kitevő}")
+print(f"Tudományos alak: {mantissza}e{kitevő}")
 if mantissza > 0:
     print("Pozitív szám")
 elif mantissza < 0:
